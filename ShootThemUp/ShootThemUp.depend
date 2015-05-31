@@ -31,7 +31,7 @@
 	<string>
 	"Sprite.h"
 
-1432975094 source:/home/orpheus/Documents/Travail/Informatique/C++/ShootThemUp/src/Niveau.cpp
+1432975337 source:/home/orpheus/Documents/Travail/Informatique/C++/ShootThemUp/src/Niveau.cpp
 	"Niveau.h"
 	<vector>
 	<iostream>
@@ -149,16 +149,20 @@
 
 1431420248 /home/orpheus/Git/Bug-destroyer/ShootThemUp/main.h
 
-1432970556 /home/orpheus/Git/Bug-destroyer/ShootThemUp/include/Interface.h
+1433082584 /home/orpheus/Git/Bug-destroyer/ShootThemUp/include/Interface.h
 	<iostream>
 	"Sprite.h"
 	"Niveau.h"
 	"Vaisseau.h"
+	"Jeu.h"
 	<vector>
 	<SDL2/SDL.h>
 	<SDL2/SDL_image.h>
 	<map>
 	<time.h>
+
+1432975124 source:/home/orpheus/Git/Bug-destroyer/ShootThemUp/src/Background.cpp
+	"Background.h"
 
 1432210938 source:/home/orpheus/Git/Bug-destroyer/ShootThemUp/src/Enemi.cpp
 	<iostream>
@@ -175,7 +179,7 @@
 	<stdlib.h>
 	<stdio.h>
 
-1432975002 source:/home/orpheus/Git/Bug-destroyer/ShootThemUp/src/Interface.cpp
+1433084000 source:/home/orpheus/Git/Bug-destroyer/ShootThemUp/src/Interface.cpp
 	"Interface.h"
 	<stdlib.h>
 	<stdio.h>
@@ -209,4 +213,14 @@
 	"Niveau.h"
 	<string>
 	<iostream>
+
+1433083676 source:/home/orpheus/Git/Bug-destroyer/ShootThemUp/src/Jeu.cpp
+	"Jeu.h"
+	<fstream>
+	<sstream>
+	<iostream>
+
+1433084130 /home/orpheus/Git/Bug-destroyer/ShootThemUp/include/Jeu.h
+	<vector>
+	<string>
 

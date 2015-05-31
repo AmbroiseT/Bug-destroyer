@@ -6,6 +6,7 @@
 #include "Sprite.h"
 #include "Niveau.h"
 #include "Vaisseau.h"
+#include "Jeu.h"
 #include <vector>
 #include<SDL2/SDL.h>
 #include<SDL2/SDL_image.h>
@@ -27,6 +28,7 @@ class Interface
         void renderTexture(SDL_Texture *tex, SDL_Renderer *ren, int x, int y, int w, int h);
         void jouer();
         void gameOver();
+        void highscores();
         void menuPrincipal();
 
     protected:
@@ -35,6 +37,7 @@ class Interface
         const int SCREEN_HEIGHT;
         SDL_Window *win;
         SDL_Renderer *ren;
+        Jeu jeu;
 
 };
 

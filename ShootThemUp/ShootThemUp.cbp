@@ -40,6 +40,7 @@
 			<Add option="-lSDL2_mixer" />
 			<Add option="-lSDL2_ttf" />
 		</Linker>
+		<Unit filename="include/Background.h" />
 		<Unit filename="include/Enemi.h" />
 		<Unit filename="include/EnemiFort.h" />
 		<Unit filename="include/Interface.h" />
@@ -49,6 +50,7 @@
 		<Unit filename="include/Vaisseau.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="main.h" />
+		<Unit filename="src/Background.cpp" />
 		<Unit filename="src/Enemi.cpp" />
 		<Unit filename="src/EnemiFort.cpp" />
 		<Unit filename="src/Interface.cpp" />

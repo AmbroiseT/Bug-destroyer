@@ -102,6 +102,67 @@ void Interface::renderTexture(SDL_Texture *tex, SDL_Renderer *ren, int x, int y,
 }
 
 
+void Interface::highscores(){
+    TTF_Font* Sans = TTF_OpenFont("font.ttf", 24);
+
+    if(Sans==NULL){
+        cout << "Police nulle!\n";
+    }
+
+    SDL_Color White = {255, 255, 255};
+
+    SDL_Surface* surfaceMessage;
+    SDL_Texture* Message;
+
+    SDL_Rect Message_rect;
+    Message_rect.x = SCREEN_WIDTH/3;
+    Message_rect.y = SCREEN_HEIGHT/10;
+    Message_rect.w = SCREEN_WIDTH/5;
+    Message_rect.h = SCREEN_HEIGHT/20;
+
+    SDL_Texture* tex=loadTextureDeux("Ressources/screens/highscores.png", ren);
+    SDL_RenderClear(ren);
+    //Draw the texture
+    SDL_RenderCopy(ren, tex, NULL, NULL);
+
+    //Update the screen
+    SDL_RenderPresent(ren);
+
+    bool quit=false;
+    SDL_Event e;
+
+    while(!quit){
+        SDL_RenderClear(ren);
+        SDL_RenderCopy(ren, tex, NULL, NULL);
+
+        Message_rect.y=200;
+        for(int i=0;i<10;i++){
+            surfaceMessage = TTF_RenderText_Solid(Sans, jeu.get(i).c_str(), White);
+            Message = SDL_CreateTextureFromSurface(ren, surfaceMessage);
+            SDL_FreeSurface(surfaceMessage);
+            SDL_RenderCopy(ren, Message, NULL, &Message_rect);
+            Message_rect.y+=Message_rect.h;
+        }
+
+        SDL_RenderPresent(ren);
+
+        while(SDL_PollEvent(&e)){
+            if(e.type == SDL_QUIT){
+                quit=true;
+            }
+            else if(e.type == SDL_KEYDOWN){
+                SDL_KeyboardEvent eK= e.key;
+                if(eK.keysym.sym == SDLK_x){
+                    quit=true;
+                }
+            }
+        }
+    }
+
+    SDL_DestroyTexture(tex);
+
+}
+
 
 void Interface::gameOver(){
 
@@ -170,11 +231,10 @@ void Interface::menuPrincipal(){
                     quit=true;
                 }
                 else if(eK.keysym.sym == SDLK_e){
-                    cout <<"Hey\n";
                     this->jouer();
                 }
                 else if(eK.keysym.sym == SDLK_h){
-                    //highscores();
+                    highscores();
                 }
             }
         }
@@ -266,7 +326,6 @@ void Interface::jouer(){
 
         }
 
-        //Update the screen
         SDL_RenderPresent(ren);
         level->passerTemps(10);
         bool pressed=false;
@@ -317,6 +376,8 @@ void Interface::jouer(){
     Mix_FreeMusic(music);
 
     if(perdu){
+        jeu.ajouterScore(level->getScore());
+        jeu.sauverScores();
         gameOver();
     }
 }
